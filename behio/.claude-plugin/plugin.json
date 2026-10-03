@@ -1,0 +1,14 @@
+{
+  "name": "behio",
+  "version": "1.0.0",
+  "description": "Launch a complete online shop or website on Behio straight from Claude: products with photos and texts, payments, legal pages, a storefront with instant preview, hosting and your own domain. Guided step by step, a working shop in under an hour.",
+  "author": {
+    "name": "Behio",
+    "email": "support@behio.com",
+    "url": "https://behio.com"
+  },
+  "homepage": "https://behio.com",
+  "repository": "https://github.com/Behio-com/claude-plugin",
+  "license": "MIT",
+  "keywords": ["e-shop", "ecommerce", "online store", "website", "storefront", "products", "payments", "hosting", "behio"]
+}

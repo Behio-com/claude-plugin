@@ -1,0 +1,19 @@
+{
+  "name": "behio",
+  "owner": {
+    "name": "Behio",
+    "email": "support@behio.com"
+  },
+  "metadata": {
+    "description": "Official Behio plugins: build and run online shops and websites on Behio from Claude."
+  },
+  "plugins": [
+    {
+      "name": "behio",
+      "source": "./behio",
+      "description": "Launch a complete online shop or website on Behio from Claude, guided step by step.",
+      "category": "ecommerce",
+      "keywords": ["e-shop", "ecommerce", "website", "behio"]
+    }
+  ]
+}
