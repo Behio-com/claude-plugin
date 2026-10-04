@@ -35,6 +35,7 @@ Check `eshop-shipping-methods-list`. When nothing is there, give the direct link
 `https://app.behio.com/{lang}/{org slug}/eshop/{eshopId}/settings/shipping` and say: add a
 method (personal pickup, own delivery or a carrier such as Zásilkovna, PPL, DPD, GLS, DHL
 or UPS), set the price and countries.
+The `eshopId` of a site that sells equals its `siteId`.
 
 ## Legal pages
 

@@ -11,22 +11,37 @@ domain; you change the code only through the Behio tools, never on the local dis
 
 ## Start or open a site
 
-1. `list-organizations`, then `site-list`. Existing site: `site-get` with
-   `includeBriefing` true and read the briefing and repository instructions.
-2. New storefront for a shop: `site-templates-list` with kind "eshop" (and the eshopId),
-   suggest one or two templates that fit the brand, then `site-create` with `eshopId` and
-   `templateId`. New company website or landing page: `site-create` with a `prompt`
-   describing the business (Behio writes the first version), or `name` and a template.
-   Stack: "next-behio" (default, best for search engines, Behio features built in), "vite"
-   (React single page app) or "next" (blank Next.js).
-3. The first build takes 3 to 5 minutes. Continue other work (products, payments) and come
+A website and a shop are one thing on Behio, a site: `siteId` identifies it in every
+`site-*` tool, and when the site sells, its `eshopId` for the `eshop-*` tools is the same id.
+
+1. `list-organizations` (one: use it; several: ask which; none: `organization-create`),
+   then `site-list`. Existing site: `site-get` with `includeBriefing` true and read the
+   briefing and repository instructions. `hasCode` false means the site has no code yet:
+   build it with `site-create` and that `siteId`.
+2. Before a new site or a bigger redesign read `site-guide` topic "start": ask about the
+   business, the goal (ask directly whether they want to sell online), pages, content and
+   analytics, recommend, write a short plan and get an explicit yes.
+3. Design: `site-templates-list` (organizationId, `siteId` for an existing site). Recommend
+   `templates.purchased` first when there are any, show the user the `demoUrl` of two or
+   three fitting templates and let them choose. `commerce` true marks a shop design; using
+   it switches selling on. Blank starters: `vite` (default, React single page app) or `next`
+   (blank Next.js for server rendering per page), both with `@behio/storefront-sdk` and
+   `BehioProvider` ready.
+4. `site-create` with `templateId` or `stack`, `primaryLocale`, `name` and `brief` (`goal`,
+   `sells`, `analytics`, `pages`, `plan`, `confirmedByUser` true). `brief.sells` true
+   creates the shop with the site; never call `eshop-create` for it. Analytics is always on
+   for a shop; for a website pass what the owner wanted. `templateId` "site" with a
+   `prompt` lets Behio write the first content (uses AI credits). Selling on an existing
+   site later: `site-commerce-enable`.
+5. The first build takes 3 to 5 minutes. Continue other work (products, payments) and come
    back.
 
 ## Change the code
 
 1. Read before you write: `site-files-list`, `site-file-read`, `site-files-grep`. Read
-   `site-guide` for the capability you build (sdk, catalog, cart-checkout, forms,
-   collections, blog, analytics, seo, i18n, design, media, deploy, vite).
+   `site-guide` for the capability you build (start, commerce, sdk, catalog,
+   cart-checkout, forms, collections, blog, analytics, seo, i18n, design, media, deploy,
+   vite).
 2. `site-files-write` writes whole files, partial edits and deletes in ONE commit; batch
    related changes. `site-file-edit` for one small edit.
 3. Images and the logo: `site-media-upload` from a public URL, then use the returned URL.
@@ -35,7 +50,8 @@ domain; you change the code only through the Behio tools, never on the local dis
 4. Repeated content the owner will edit later (team, references, FAQ, price list) belongs
    in a data collection (`site-content` skill), not hardcoded in pages.
 5. Brand: put colors and fonts into the design tokens the briefing names, keep contrast
-   readable, design mobile first from 390 px with no horizontal scrolling.
+   readable, design phone first from 390 px with no horizontal scrolling, 44 px tap
+   targets and the main action (call, book, add to cart) in thumb reach.
 
 ## Check and show
 
@@ -43,7 +59,8 @@ domain; you change the code only through the Behio tools, never on the local dis
    going live). Fix what it reports.
 2. `site-dev-preview` starts an instant preview with hot reload: share that URL while you
    iterate; later writes appear in seconds.
-3. `site-screenshot` at width 390 and 1280 and look at the images before you report.
+3. `site-screenshot` at width 390 first, then 1280, and look at the images before you
+   report.
 4. The regular preview (`site-preview`) rebuilds in 2 to 4 minutes after each commit; if a
    build fails, read `site-logs` with type "build".
 

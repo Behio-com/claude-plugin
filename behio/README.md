@@ -26,8 +26,8 @@ create their organization right in the chat).
 
 | Skill | What it does |
 |---|---|
-| launch-eshop | Guided launch: shop, catalog, storefront, payments, legal pages, test order, domain |
-| shop-products | Products from a list, spreadsheet or website: texts in every language, photos, prices, categories |
+| launch-eshop | Guided launch: plan with you first, then shop, catalog, storefront, payments, legal pages, test order, domain |
+| shop-products | Products from a list, spreadsheet or website: texts in every language, photos, prices, categories, variants, parameters |
 | shop-website | Storefront or website code with instant preview and screenshots |
 | shop-ready | Payments (bank transfer, Stripe link), shipping in the admin, legal page drafts |
 | go-live | Own domain and publishing |
