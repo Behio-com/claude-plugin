@@ -21,7 +21,9 @@ Behio admin without a deploy, so never hardcode it in the code (`site-guide` top
    `site-menu-item-update`, `site-menu-item-reorder`, `site-menu-list`. Site SEO per
    language: `site-seo-upsert`, `site-seo-list`. Analytics and verification:
    `site-script-upsert` (GA4, GTM, Meta Pixel, Search Console token, raw snippet;
-   consentRequired true for trackers), `site-scripts-list`. Ask before any delete.
+   consentRequired true for trackers, the Search Console token never waits for consent;
+   ids are checked, a pasted snippet is reduced to its id), `site-scripts-list`. The
+   starters render them with `<StorefrontScripts />`. Ask before any delete.
    Downloadable files on a page (price list, brochure, form): `site-page-attachment-add`
    with the pageId and a public https URL of a PDF, Office file or image;
    `site-page-attachments-list` shows them, the site reads page.attachments.
@@ -35,8 +37,11 @@ Behio admin without a deploy, so never hardcode it in the code (`site-guide` top
 
 1. Forms live in Behio, not in code: `form-list`, `form-create-update` (fields, consent, who
    gets notified). Render on the site as `site-guide` topic "forms" describes. Answers
-   land in `form-submissions-list` and the admin; with `crmLeads: true` in settings (ask the
-   owner, default off) each answer also becomes a lead in the Behio CRM.
+   land in `form-submissions-list` and the admin; with `crmLeads: true` in settings each
+   answer also becomes a lead in the Behio CRM. A new blank starter comes with a general
+   `contact` form (name, e-mail, phone, message, consent) in the site language that already
+   sends leads to the CRM: adapt its fields to the business instead of adding a second form.
+   For any other form ask the owner before switching `crmLeads` on.
 2. Blog: `blog-list` and `blog-create` for the blog, `blog-posts-list` and
    `blog-post-create-update` for posts. The site renders them (`site-guide` topic "blog").
 3. Data collections for repeated editable content (team, references, FAQ, price list, job
