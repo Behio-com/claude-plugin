@@ -29,9 +29,10 @@ create their organization right in the chat).
 | launch-eshop | Guided launch: plan with you first, then shop, catalog, storefront, payments, legal pages, test order, domain |
 | shop-products | Products from a list, spreadsheet or website: texts in every language, photos, prices, categories, variants, parameters |
 | shop-website | Storefront or website code with instant preview and screenshots |
-| shop-ready | Payments (bank transfer, Stripe link), shipping in the admin, legal page drafts |
+| shop-ready | Payments (bank transfer, Stripe link), shipping and legal pages in the admin with exact links |
 | go-live | Own domain and publishing |
 | site-content | Forms into the CRM, blog, editable data collections, visitor stats |
+| site-analytics | Evaluate visitors with numbers: trends, sources, pages, leaving, devices, funnels, forms, and what to change |
 
 The plugin connects to `https://be.behio.com/mcp-code` (OAuth). Every change is visible in
 the Behio admin, where it can be undone. Nothing is published to a live domain without

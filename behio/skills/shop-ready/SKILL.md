@@ -1,6 +1,6 @@
 ---
 name: shop-ready
-description: Get a Behio shop ready to take real orders, payments, shipping and legal pages. Use when the user asks to set up payments, connect Stripe, accept card payments or bank transfer, set up shipping or carriers, generate terms and conditions or privacy policy, or asks "what is still missing before I can sell".
+description: Get a Behio shop ready to take real orders, payments, shipping and legal pages. Use when the user asks to set up payments, connect Stripe, accept card payments or bank transfer, set up shipping or carriers, needs terms and conditions or a privacy policy, or asks "what is still missing before I can sell".
 ---
 
 # Ready to sell
@@ -25,27 +25,25 @@ needs `currencies` (the shop currency from `eshop-settings-get`).
   When they confirm, check `eshop-payment-methods-list` and switch the method on with
   `eshop-payment-method-update` enabled true.
 - Any other gateway needs secret keys. NEVER ask for API keys, passwords or secrets in the
-  chat. Send the user to
-  `https://app.behio.com/{lang}/{org slug}/eshop/{eshopId}/settings/payments`.
+  chat. Give the user the link from `site-admin-link` with topic `payments`.
 
 ## Shipping
 
 Shipping methods and carrier contracts are set up in the Behio admin, not in the chat.
-Check `eshop-shipping-methods-list`. When nothing is there, give the direct link
-`https://app.behio.com/{lang}/{org slug}/eshop/{eshopId}/settings/shipping` and say: add a
+Check `eshop-shipping-methods-list`. When nothing is there, give the link from
+`site-admin-link` with topic `shipping` and the siteId, and say: add a
 method (personal pickup, own delivery or a carrier such as Zásilkovna, PPL, DPD, GLS, DHL
 or UPS), set the price and countries.
 The `eshopId` of a site that sells equals its `siteId`.
 
 ## Legal pages
 
-`eshop-legal-docs-generate` drafts terms, complaints policy, privacy policy, withdrawal form
-and cookie policy for Czech or Slovak law. It needs the `seller` identity (company or
-person name, address, company ID, contact e-mail). Ask the user for these facts; never
-invent them. Also ask the yes or no questions the tool requires (custom goods, digital
-content, perishables, hygiene sealed goods). Track progress with
-`eshop-legal-doc-jobs-list`. The drafts stay unpublished until the owner reviews them in
-the admin; say so.
+Behio does not write legal texts through Claude and does not vouch for them, so never draft
+terms, a privacy policy, a withdrawal form or cookie rules yourself. Give the owner the link
+from `site-admin-link` with topic `legal-pages` and the siteId: a shop opens the legal
+documents wizard there, where the owner prepares and publishes them. When the owner hands
+you a finished text, you may add it as a page (`site-page-create`) and, once they publish
+it, link it from the footer menu (`site-menu-item-create`, type PAGE).
 
 ## Test
 

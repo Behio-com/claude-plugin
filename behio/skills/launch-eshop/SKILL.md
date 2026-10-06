@@ -1,6 +1,6 @@
 ---
 name: launch-eshop
-description: Guided launch of a complete online shop on Behio in under an hour, from an empty account to a storefront that takes orders. Use when the user wants to start selling online, open an e-shop or online store, "make me a shop for my candles", "I want to sell my products on the internet", or asks what they need for a working shop. Plans the shop with the user first, then creates the site with selling switched on, the catalog with texts, photos and variants, payments and legal pages, and reports progress after every step.
+description: Guided launch of a complete online shop on Behio in under an hour, from an empty account to a storefront that takes orders. Use when the user wants to start selling online, open an e-shop or online store, "make me a shop for my candles", "I want to sell my products on the internet", or asks what they need for a working shop. Plans the shop with the user first, then creates the site with selling switched on, the catalog with texts, photos and variants and payments, sends the owner to the admin for shipping and legal pages, and reports progress after every step.
 ---
 
 # Launch an online shop on Behio
@@ -125,9 +125,10 @@ Follow the `shop-ready` skill:
 - Bank transfer works right away (account number and instructions). Card payments: create
   the Stripe method and give the user the connect link.
 - Shipping methods and carriers are set up by the owner in the Behio admin: give the
-  direct link (see `shop-ready`).
-- `eshop-legal-docs-generate` drafts terms, complaints, privacy, withdrawal and cookie pages;
-  the owner reviews and publishes them in the admin.
+  link from `site-admin-link` (topic `shipping`, see `shop-ready`).
+- Legal pages: Behio does not write legal texts through Claude and does not vouch for them.
+  The owner prepares them in the admin legal documents wizard: give the link from
+  `site-admin-link` (topic `legal-pages`).
 
 ## Step 7. Test order and going live
 
@@ -141,6 +142,6 @@ Follow the `shop-ready` skill:
 
 End with a short summary: shop name, preview URL, number of published products, payment
 and shipping status, legal pages status, what remains and the admin links where the owner
-finishes it (`https://app.behio.com/{lang}/{slug}/eshop/{siteId}`). Offer the next useful
+finishes it (one `site-admin-link` per item, never a vague "in the admin"). Offer the next useful
 steps: more products, discount codes (`eshop-discount-create`), a blog, a newsletter form,
 a team or references section as a data collection, or a custom domain.
