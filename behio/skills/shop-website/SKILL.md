@@ -21,18 +21,14 @@ A website and a shop are one thing on Behio, a site: `siteId` identifies it in e
 2. Before a new site or a bigger redesign read `site-guide` topic "start": ask about the
    business, the goal (ask directly whether they want to sell online), pages, content and
    analytics, recommend, write a short plan and get an explicit yes.
-3. Design: `site-templates-list` (organizationId, `siteId` for an existing site). Recommend
-   `templates.purchased` first when there are any, show the user the `demoUrl` of two or
-   three fitting templates and let them choose. `commerce` true marks a shop design; using
-   it switches selling on. Blank starters: `vite` (default, React single page app) or `next`
-   (blank Next.js for server rendering per page), both with `@behio/storefront-sdk` and
-   `BehioProvider` ready.
-4. `site-create` with `templateId` or `stack`, `primaryLocale`, `name` and `brief` (`goal`,
-   `sells`, `analytics`, `pages`, `plan`, `confirmedByUser` true). `brief.sells` true
-   creates the shop with the site; never call `eshop-create` for it. Analytics is always on
-   for a shop; for a website pass what the owner wanted. `templateId` "site" with a
-   `prompt` lets Behio write the first content (uses AI credits). Selling on an existing
-   site later: `site-commerce-enable`.
+3. Use `site-templates-list`. Roast is the only active design. Show its live demo
+   and obtain the user's choice. Premium purchases belong to a particular site;
+   use that purchased `siteId`. Retired blank starters and website presets cannot
+   create new sites.
+4. `site-create` with an active `templateId`, `primaryLocale`, `name` and `brief`
+   (`goal`, `sells`, `analytics`, `pages`, `plan`, `confirmedByUser` true).
+   `brief.sells` true enables the shop on the site; never call `eshop-create`
+   for it. Selling on an existing site later: `site-commerce-enable`.
 5. The first build takes 3 to 5 minutes. Continue other work (products, payments) and come
    back.
 

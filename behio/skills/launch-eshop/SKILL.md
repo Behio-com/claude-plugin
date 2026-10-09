@@ -73,16 +73,15 @@ explicit yes.
 
 ## Step 2. Design
 
-`site-templates-list` (organizationId, `siteId` only for an existing site). When
-`templates.purchased` is not empty, recommend those first. Show the user the `demoUrl` of
-the two or three templates that fit best and let them pick. A template with `commerce` true
-is a shop design. A blank starter is also fine: `vite` (default) or `next`; both come with
-`@behio/storefront-sdk` and `BehioProvider` ready.
+`site-templates-list` (organizationId, `siteId` for an existing site). Roast is
+the only active design. Show its live demo and get the user's choice. Premium
+purchases belong to a particular site; use that purchased `siteId`. Retired
+blank starters and website presets cannot create new sites.
 
 ## Step 3. Create the site with selling on
 
 `site-create` with `organizationId`, `primaryLocale`, `defaultCurrency`, `name`,
-`templateId` or `stack`, `siteId` when continuing a site without code, and `brief`:
+an active `templateId`, `siteId` when continuing a site without code, and `brief`:
 `goal`, `sells` true, `analytics` true (always on for a shop), `pages`, `plan` (the agreed
 plan) and `confirmedByUser` true. Do NOT call `eshop-create`: the shop is created with the
 site and its `eshopId` equals the `siteId`. The first preview builds in 3 to 5 minutes;
